@@ -6,6 +6,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -24,6 +25,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class MuinasGrantapplicationmuinasobject extends Model
 {
+	use HasFactory;
+	
 	protected $table = 'muinas_grantapplicationmuinasobject';
 	public $timestamps = false;
 

@@ -35,7 +35,7 @@ class MuinasCommitteeProtocolFactory extends Factory
             'signature' => 'paper',
             'created' => now()->subMonth(1),
             'application_round_id' => null,
-           // 'committee_name =>' => null,
+            'committee_name' => $this->faker->word(),
         ];
     }
 }

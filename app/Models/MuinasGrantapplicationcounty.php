@@ -30,6 +30,8 @@ class MuinasGrantapplicationcounty extends Model
 		'county' => 'int'
 	];
 
+	protected $guarded = [];
+
 	public function muinas_grantapplication()
 	{
 		return $this->belongsTo(MuinasGrantapplication::class, 'grantapplication');

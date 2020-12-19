@@ -3,9 +3,13 @@
 namespace Database\Factories;
 
 use App\Models\MuinasGrantApplication;
+use App\Models\MuinasGrantapplicationmonument;
+use App\Models\MuinasGrantapplicationmonumentowner;
+use App\Models\MuinasGrantapplicationmuinasobject;
 use App\Models\MuinasMonumentowner;
 use App\Models\MuinasMuinasobject;
 use App\Models\MuinasMuinasobjectaddress;
+use App\Models\MuinasOwnerperson;
 use App\Models\MuinasPerson;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -28,10 +32,8 @@ class MuinasGrantApplicationFactory extends Factory
         $amount = $this->faker->numberBetween(10000, 30000);
         $person = MuinasPerson::all()->random();
         $mmo = MuinasMuinasobject::where('type', 'monument')->get()->random();        
-
-        $mma = MuinasMuinasobjectaddress::where('muinasobject', $mmo->id)->first();
-        $mom = $mmo->muinas_muinasobjectmonuments->first();
-        
+        $mma = MuinasMuinasobjectaddress::where('muinasobject', $mmo->id)->first();        
+		$mom = $mmo->muinas_muinasobjectmonuments->first();     
         $owner = MuinasMonumentowner::where('monument', $mom->monument)->first()->muinas_ownerperson;
 
         return [
@@ -96,5 +98,5 @@ class MuinasGrantApplicationFactory extends Factory
 		'procedural_deadline' => now()->addYear(1),
 		'document_classified' => false,
         ];
-    }
+	}
 }
